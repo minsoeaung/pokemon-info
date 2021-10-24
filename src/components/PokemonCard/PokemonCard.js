@@ -1,4 +1,5 @@
 import './PokemonCard.css'
+import {useState} from "react";
 
 // dynamic background depending on pokemon type
 const colors = {
@@ -18,9 +19,9 @@ const colors = {
     normal: "#F5F5F5"
 }
 
-const PokemonCard = ({name, type, imageSrc, lastPokemonRef}) => {
+const PokemonCard = ({name, type, imageSrc, lastPokemonRef, setClickedPokemon}) => {
     return (
-        <div ref={lastPokemonRef} className="card-container" style={{backgroundColor: colors[type[0].type.name]}}>
+        <div ref={lastPokemonRef} className="card-container" style={{backgroundColor: colors[type[0].type.name]}} onClick={() => setClickedPokemon(name)}>
             <h2 className="pokemon-name">{name}</h2>
             <div className="image-container">
                 <img

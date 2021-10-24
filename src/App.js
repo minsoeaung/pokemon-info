@@ -1,10 +1,12 @@
 import {useState, useEffect, useRef, useCallback} from "react";
 import PokemonCard from "./components/PokemonCard/PokemonCard";
+import PokemonDetails from "./components/PokemonDetails/PokemonDetails";
 import './App.css'
 
 function App() {
     const [pokemons, setPokemons] = useState([])
     const [nextURL, setNextURL] = useState("https://pokeapi.co/api/v2/pokemon/?limit=20")
+    const [clickedPokemon, setClickedPokemon] = useState("")
 
     const fetchPokemons = async () => {
         const res = await fetch(nextURL)
@@ -48,8 +50,19 @@ function App() {
                     type={pokemon.types}
                     imageSrc={pokemon.sprites.front_default}
                     lastPokemonRef={lastPokemonRef}
+                    setClickedPokemon={setClickedPokemon}
                 />
             )}
+
+            {/* pokemon details modal */}
+
+            {clickedPokemon.length > 0
+                ? <PokemonDetails
+                    pokemon={clickedPokemon}
+                    setClickedPokemon={setClickedPokemon}
+                />
+                : <></>
+            }
         </main>
     );
 }

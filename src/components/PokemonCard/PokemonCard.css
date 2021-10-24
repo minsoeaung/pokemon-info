@@ -1,8 +1,13 @@
 .card-container {
     text-align: center;
     padding: 36px;
-    border-radius: 16px;
+    border-radius: 8px;
     margin: 15px;
+    box-shadow: 0 2px 5px rgba(100, 100, 100, 0.5);
+    cursor: pointer;
+}
+
+.card-container:hover {
     box-shadow: 0 3px 15px rgba(100, 100, 100, 0.5);
 }
 
@@ -34,5 +39,5 @@
     cursor: default;
     font-weight: 700;
     border-radius: 3px;
-    background-color: grey;
+    background-color: darkslategrey;
 }
