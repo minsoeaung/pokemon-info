@@ -1,0 +1,22 @@
+.card-container {
+    text-align: center;
+    background-color: #fff;
+    padding: 36px;
+    border-radius: 6px;
+    margin: 5px;
+}
+
+.pokemon-name {
+    text-transform: capitalize;
+    font-size: 36px;
+}
+
+.pokemon-image {
+    width: 200px;
+}
+
+.pokemon-type {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
