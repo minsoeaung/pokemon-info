@@ -2,6 +2,18 @@ import './PokemonDetails.css'
 import colors from "../../colors";
 
 function PokemonDetails({clickedPokemon, setClickedPokemon}) {
+    const height = (height) => {
+        // height from poke api come with dm
+        const realFeet = height * 0.32808
+        const feet = Math.floor(realFeet)
+        const inches = Math.round((realFeet - feet) * 12);
+        return `${feet}' ${inches}"`
+    }
+
+    const weight = (weight) => {
+        return (Math.round( (weight*0.2205) * 10 ) / 10).toFixed(1);
+    }
+
     return (
         <div className="details-wrapper">
             <div className="details" style={{backgroundColor: colors[clickedPokemon.types[0].type.name]}}>
@@ -46,11 +58,11 @@ function PokemonDetails({clickedPokemon, setClickedPokemon}) {
                         </div>
                         <h2>Height</h2>
                         <div className="height-container">
-                            <span className="nice-text">3' 03"</span>
+                            <span>{height(clickedPokemon.height)}</span>
                         </div>
                         <h2>Weight</h2>
                         <div className="weight-container">
-                            <span className="nice-text">28.7 lbs</span>
+                            <span>{weight(clickedPokemon.weight)} lbs</span>
                         </div>
                     </section>
 
