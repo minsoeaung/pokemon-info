@@ -4,9 +4,9 @@ import PokemonDetails from "./components/PokemonDetails/PokemonDetails";
 import './App.css'
 
 function App() {
-    const [pokemons, setPokemons] = useState([])
+    const [pokemons, setPokemons] = useState([]) // array of all pokemon object
     const [nextURL, setNextURL] = useState("https://pokeapi.co/api/v2/pokemon/?limit=20")
-    const [clickedPokemon, setClickedPokemon] = useState("")
+    const [clickedPokemon, setClickedPokemon] = useState({}) // clicked pokemon object
 
     const fetchPokemons = async () => {
         const res = await fetch(nextURL)
@@ -49,19 +49,21 @@ function App() {
                     name={pokemon.name}
                     type={pokemon.types}
                     imageSrc={pokemon.sprites.front_default}
-                    lastPokemonRef={lastPokemonRef}
-                    setClickedPokemon={setClickedPokemon}
+
+                    lastPokemonRef={lastPokemonRef} // to detect if user scroll to bottom
+                    setClickedPokemon={setClickedPokemon} // clicked pokemon object
+                    pokemons={pokemons} // array of all pokemon object
                 />
             )}
 
             {/* pokemon details modal */}
 
-            {clickedPokemon.length > 0
+            {Object.keys(clickedPokemon).length !== 0
                 ? <PokemonDetails
-                    pokemon={clickedPokemon}
+                    clickedPokemon={clickedPokemon}
                     setClickedPokemon={setClickedPokemon}
                 />
-                : <></>
+                : null
             }
         </main>
     );
