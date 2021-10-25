@@ -1,22 +1,5 @@
 import './PokemonCard.css'
-
-// dynamic background color depending on pokemon type
-const colors = {
-    fire: "#FDDFDF",
-    grass: "#DEFDE0",
-    electric: "#FCF7DE",
-    water: "#DEF3FD",
-    ground: "#f4e7da",
-    rock: "#d5d5d4",
-    fairy: "#fceaff",
-    poison: "#98d5a3",
-    bug: "#f8d5a3",
-    dragon: "#97b3e6",
-    psychic: "#eaeda1",
-    flying: "#F5F5F5",
-    fighting: "#E6E0D4",
-    normal: "#F5F5F5"
-}
+import colors from "../../colors";
 
 const PokemonCard = ({name, type, imageSrc, lastPokemonRef, setClickedPokemon, pokemons}) => {
 
@@ -40,7 +23,7 @@ const PokemonCard = ({name, type, imageSrc, lastPokemonRef, setClickedPokemon, p
             </div>
             <div className="type-container">
                 {type.map(type =>
-                    <p className="pokemon-type">
+                    <p className="pokemon-type" key={type.type.name}>
                         {type.type.name}
                     </p>
                 )}
