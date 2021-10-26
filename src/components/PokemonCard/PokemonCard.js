@@ -1,5 +1,5 @@
 import './PokemonCard.css'
-import colors from "../../colors";
+import { colorsForCard , colorsForType } from "../../colors";
 
 const PokemonCard = ({name, type, imageSrc, lastPokemonRef, setClickedPokemon, pokemons}) => {
 
@@ -12,7 +12,7 @@ const PokemonCard = ({name, type, imageSrc, lastPokemonRef, setClickedPokemon, p
     return (
 
         // when this div(card) was clicked, it sets clicked pokemon obj in setClickedPokemon
-        <div ref={lastPokemonRef} className="card-container" style={{backgroundColor: colors[type[0].type.name]}} onClick={() => handleOnClick(name)}>
+        <div ref={lastPokemonRef} className="card-container" style={{backgroundColor: colorsForCard[type[0].type.name]}} onClick={() => handleOnClick(name)}>
             <h2 className="pokemon-name">{name}</h2>
             <div className="image-container">
                 <img
@@ -23,7 +23,7 @@ const PokemonCard = ({name, type, imageSrc, lastPokemonRef, setClickedPokemon, p
             </div>
             <div className="type-container">
                 {type.map(type =>
-                    <p className="pokemon-type" key={type.type.name}>
+                    <p className="pokemon-type" key={type.type.name} style={{backgroundColor: colorsForType[type.type.name]}}>
                         {type.type.name}
                     </p>
                 )}

@@ -1,5 +1,5 @@
 import './PokemonDetails.css'
-import colors from "../../colors";
+import { colorsForCard, colorsForType } from "../../colors";
 
 function PokemonDetails({clickedPokemon, setClickedPokemon}) {
     const height = (height) => {
@@ -16,7 +16,7 @@ function PokemonDetails({clickedPokemon, setClickedPokemon}) {
 
     return (
         <div className="details-wrapper">
-            <div className="details" style={{backgroundColor: colors[clickedPokemon.types[0].type.name]}}>
+            <div className="details" style={{backgroundColor: colorsForCard[clickedPokemon.types[0].type.name]}}>
                 <div className="details-header">
                     <h1>{clickedPokemon.name}</h1>
                     <span className="close-btn" onClick={() => setClickedPokemon({})}>&times;</span>
@@ -37,17 +37,17 @@ function PokemonDetails({clickedPokemon, setClickedPokemon}) {
                     <section className="middle-section">
                         <div className="small-image-container">
                             <div className="small-image">
-                                <img src={clickedPokemon.sprites.front_default}/>
+                                <img src={clickedPokemon.sprites.front_default} alt={clickedPokemon.name}/>
                             </div>
                             <div className="small-image">
-                                <img src={clickedPokemon.sprites.front_shiny}/>
+                                <img src={clickedPokemon.sprites.front_shiny} alt={clickedPokemon.name}/>
                             </div>
                             <div className="small-image">
 
-                                <img src={clickedPokemon.sprites.back_default}/>
+                                <img src={clickedPokemon.sprites.back_default} alt={clickedPokemon.name}/>
                             </div>
                             <div className="small-image">
-                                <img src={clickedPokemon.sprites.back_shiny}/>
+                                <img src={clickedPokemon.sprites.back_shiny} alt={clickedPokemon.name}/>
                             </div>
                         </div>
                         <h2>Abilities</h2>
@@ -72,7 +72,7 @@ function PokemonDetails({clickedPokemon, setClickedPokemon}) {
                         <h2>Type</h2>
                         <div className="type-container">
                             {clickedPokemon.types.map(type =>
-                                <p className="type" key={type.type.name}>
+                                <p className="type" key={type.type.name} style={{backgroundColor: colorsForType[type.type.name]}}>
                                     {type.type.name}
                                 </p>
                             )}
