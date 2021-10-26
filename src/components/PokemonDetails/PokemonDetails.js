@@ -17,9 +17,8 @@ function PokemonDetails({clickedPokemon, setClickedPokemon}) {
     return (
         <div className="details-wrapper" onClick={() => setClickedPokemon({})}>
             <div
-                className="details"
-                {/* prevent closing details card when click inside */}
                 onClick={(e) => e.stopPropagation()}
+                className="details"
                 style={{backgroundColor: colorsForCard[clickedPokemon.types[0].type.name]}}
             >
                 <div className="details-header">
@@ -77,7 +76,7 @@ function PokemonDetails({clickedPokemon, setClickedPokemon}) {
                         <h2>Type</h2>
                         <div className="type-container">
                             {clickedPokemon.types.map(type =>
-                                <p className="nice-text" key={type.type.name} style={{backgroundColor: colorsForType[type.type.name]}}>
+                                <p className="type" key={type.type.name} style={{backgroundColor: colorsForType[type.type.name]}}>
                                     {type.type.name}
                                 </p>
                             )}
@@ -86,10 +85,6 @@ function PokemonDetails({clickedPokemon, setClickedPokemon}) {
                         <div className="stats-container">
                             <table>
                                 <tbody>
-                                <tr>
-                                    <td>base-experience</td>
-                                    <td>{clickedPokemon.base_experience}</td>
-                                </tr>
                                 {clickedPokemon.stats.map(stat =>
                                     <tr key={stat.stat.name}>
                                         <td>{stat.stat.name}</td>
