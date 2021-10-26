@@ -13,10 +13,10 @@ const colors = {
     flying: "#F5F5F5",
     fighting: "#E6E0D4",
     normal: "#F5F5F5",
-    ghost: "",
-    steel: "",
-    ice: "",
-    dark: "",
+    ghost: "#C7C7CD",
+    steel: "#caccce",
+    ice: "#9EE4D9",
+    dark: "#778899",
 }
 
 export default colors

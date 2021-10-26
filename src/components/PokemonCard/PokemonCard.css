@@ -3,12 +3,13 @@
     padding: 36px;
     border-radius: 8px;
     margin: 15px;
-    box-shadow: 0 2px 5px rgba(100, 100, 100, 0.5);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+    transition: all 0.3s cubic-bezier(.25,.8,.25,1);
     cursor: pointer;
 }
 
 .card-container:hover {
-    box-shadow: 0 3px 15px rgba(100, 100, 100, 0.5);
+    box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22);
 }
 
 .pokemon-name {
@@ -19,7 +20,7 @@
 
 .image-container {
     background-color: rgba(255, 255, 255, 0.6);
-    border-radius: 50%;
+    border-radius: 20%;
 }
 
 .pokemon-image {
