@@ -76,7 +76,7 @@ function PokemonDetails({clickedPokemon, setClickedPokemon}) {
                         <h2>Type</h2>
                         <div className="type-container">
                             {clickedPokemon.types.map(type =>
-                                <p className="type" key={type.type.name} style={{backgroundColor: colorsForType[type.type.name]}}>
+                                <p className="type nice-text" key={type.type.name} style={{backgroundColor: colorsForType[type.type.name]}}>
                                     {type.type.name}
                                 </p>
                             )}
@@ -85,6 +85,10 @@ function PokemonDetails({clickedPokemon, setClickedPokemon}) {
                         <div className="stats-container">
                             <table>
                                 <tbody>
+                                <tr>
+                                    <td>base-experience</td>
+                                    <td>{clickedPokemon.base_experience}</td>
+                                </tr>
                                 {clickedPokemon.stats.map(stat =>
                                     <tr key={stat.stat.name}>
                                         <td>{stat.stat.name}</td>
