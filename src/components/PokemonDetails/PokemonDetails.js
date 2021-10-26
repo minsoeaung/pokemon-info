@@ -15,8 +15,13 @@ function PokemonDetails({clickedPokemon, setClickedPokemon}) {
     }
 
     return (
-        <div className="details-wrapper">
-            <div className="details" style={{backgroundColor: colorsForCard[clickedPokemon.types[0].type.name]}}>
+        <div className="details-wrapper" onClick={() => setClickedPokemon({})}>
+            <div
+                className="details"
+                {/* prevent closing details card when click inside */}
+                onClick={(e) => e.stopPropagation()}
+                style={{backgroundColor: colorsForCard[clickedPokemon.types[0].type.name]}}
+            >
                 <div className="details-header">
                     <h1>{clickedPokemon.name}</h1>
                     <span className="close-btn" onClick={() => setClickedPokemon({})}>&times;</span>
@@ -72,7 +77,7 @@ function PokemonDetails({clickedPokemon, setClickedPokemon}) {
                         <h2>Type</h2>
                         <div className="type-container">
                             {clickedPokemon.types.map(type =>
-                                <p className="type" key={type.type.name} style={{backgroundColor: colorsForType[type.type.name]}}>
+                                <p className="nice-text" key={type.type.name} style={{backgroundColor: colorsForType[type.type.name]}}>
                                     {type.type.name}
                                 </p>
                             )}
@@ -81,6 +86,10 @@ function PokemonDetails({clickedPokemon, setClickedPokemon}) {
                         <div className="stats-container">
                             <table>
                                 <tbody>
+                                <tr>
+                                    <td>base-experience</td>
+                                    <td>{clickedPokemon.base_experience}</td>
+                                </tr>
                                 {clickedPokemon.stats.map(stat =>
                                     <tr key={stat.stat.name}>
                                         <td>{stat.stat.name}</td>
