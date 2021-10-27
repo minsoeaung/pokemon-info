@@ -77,6 +77,7 @@ function App() {
                 ? <PokemonDetails
                     clickedPokemon={clickedPokemon}
                     setClickedPokemon={setClickedPokemon}
+                    isMobile={isMobile}
                 />
                 : null
             }

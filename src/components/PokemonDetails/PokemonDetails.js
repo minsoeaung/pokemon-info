@@ -1,7 +1,7 @@
 import './PokemonDetails.css'
 import { colorsForCard, colorsForType } from "../../colors";
 
-function PokemonDetails({clickedPokemon, setClickedPokemon}) {
+function PokemonDetails({clickedPokemon, setClickedPokemon, isMobile}) {
     const height = (height) => {
         // height from poke api come with dm
         const realFeet = height * 0.32808
@@ -15,31 +15,32 @@ function PokemonDetails({clickedPokemon, setClickedPokemon}) {
     }
 
     return (
-        <div className="details-wrapper" onClick={() => setClickedPokemon({})}>
+        <div className={`details-wrapper ${isMobile && "no-p"}`} onClick={() => setClickedPokemon({})}>
             <div
                 onClick={(e) => e.stopPropagation()}
-                className="details"
+                className={`details ${isMobile && "full-width"}`}
                 style={{backgroundColor: colorsForCard[clickedPokemon.types[0].type.name]}}
             >
                 <div className="details-header">
                     <h1>{clickedPokemon.name}</h1>
                     <span className="close-btn" onClick={() => setClickedPokemon({})}>&times;</span>
                 </div>
-                <div className="details-body">
+                <div className={`details-body ${isMobile && "flex-col"}`}>
 
                     {/* <left> big profile image */}
 
-                    <section className="left-section">
+                    <section className={isMobile ? "sm-left-section" : "left-section"}>
                         <img
                             src={clickedPokemon.sprites.other.dream_world.front_default}
                             alt={clickedPokemon.name}
+                            className="profile-image"
                         />
                     </section>
 
                     {/* <middle> image and some info about weight, height, etc.... */}
 
                     <section className="middle-section">
-                        <div className="small-image-container">
+                        <div className={`small-image-container ${isMobile && "hide-this"}`}>
                             <div className="small-image">
                                 <img src={clickedPokemon.sprites.front_default} alt={clickedPokemon.name}/>
                             </div>
@@ -100,6 +101,10 @@ function PokemonDetails({clickedPokemon, setClickedPokemon}) {
                         </div>
                     </section>
                 </div>
+                {isMobile ?
+                    <p className="nice-text bottom-close-btn" onClick={() => setClickedPokemon({})}>CLOSE</p>
+                    : null
+                }
             </div>
         </div>
     );
