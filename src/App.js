@@ -7,7 +7,9 @@ function App() {
     const [pokemons, setPokemons] = useState([]) // array of all pokemon object
     const [nextURL, setNextURL] = useState("https://pokeapi.co/api/v2/pokemon/?limit=20")
     const [clickedPokemon, setClickedPokemon] = useState({}) // clicked pokemon object
+    const [width, setWidth] = useState(window.innerWidth) // to check mobile or desktop
 
+    // API things
     const fetchPokemons = async () => {
         const res = await fetch(nextURL)
         const data = await res.json()
@@ -41,8 +43,20 @@ function App() {
         if (node) observer.current.observe(node)
     })
 
+    // detect if the application is being viewed on Mobile or Desktop
+    function handleWindowWidthChange() {
+        setWidth(window.innerWidth)
+    }
+
+    useEffect(() => {
+        window.addEventListener('resize', handleWindowWidthChange)
+        return () => {window.removeEventListener('resize', handleWindowWidthChange)}
+    }, [])
+
+    let isMobile = width <= 768
+
     return (
-        <main>
+        <main className={isMobile ? "sm-app-container" : "app-container"}>
             {pokemons.map(pokemon =>
                 <PokemonCard
                     key={pokemon.name}
@@ -53,6 +67,7 @@ function App() {
                     lastPokemonRef={lastPokemonRef} // to detect if user scroll to bottom
                     setClickedPokemon={setClickedPokemon} // clicked pokemon object
                     pokemons={pokemons} // array of all pokemon object
+                    isMobile={isMobile}
                 />
             )}
 

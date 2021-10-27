@@ -8,15 +8,35 @@
     cursor: pointer;
 }
 
+.sm-card-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+    flex: 1 0 30%;
+    border-radius: 5%;
+}
+
 .card-container:hover {
     box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22);
 }
+
+/*----------------------------------------------*/
 
 .pokemon-name {
     text-transform: capitalize;
     letter-spacing: 2px;
     font-size: 30px;
 }
+
+.sm-pokemon-name {
+    text-transform: capitalize;
+    font-size: 16px;
+    letter-spacing: 2px;
+}
+
+/*---------------------------------------------------*/
 
 .image-container {
     background-color: rgba(255, 255, 255, 0.6);
@@ -26,6 +46,19 @@
 .pokemon-image {
     width: 160px;
 }
+
+.sm-image-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.sm-pokemon-image {
+    width: 130%;
+    height: 130%;
+}
+
+/*---------------------------------------------------*/
 
 .type-container {
     display: flex;
@@ -40,4 +73,18 @@
     cursor: default;
     font-weight: 700;
     border-radius: 3px;
+}
+
+.sm-type-container {
+    display: flex;
+    justify-content: center;
+    gap: 5px;
+}
+
+.sm-pokemon-type {
+    padding: 2px 2px;
+    color: #fff;
+    font-size: 12px;
+    font-weight: 600;
+    border-radius: 10%;
 }

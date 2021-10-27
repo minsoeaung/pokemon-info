@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=DotGothic16&display=swap');
 
-main {
+.app-container {
     font-family: "DotGothic16", serif;
     padding: 36px;
     margin: 0;
@@ -8,4 +8,11 @@ main {
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
+}
+
+.sm-app-container {
+    font-family: "DotGothic16", serif;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
 }
