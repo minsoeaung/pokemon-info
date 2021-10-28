@@ -16,3 +16,7 @@
     flex-wrap: wrap;
     gap: 10px;
 }
+
+body {
+    background-color: #533387;
+}
