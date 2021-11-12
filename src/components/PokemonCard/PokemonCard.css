@@ -1,11 +1,11 @@
 .card-container {
     text-align: center;
-    padding: 36px;
-    border-radius: 8px;
+    padding: 26px;
     margin: 15px;
-    box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
-    transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+    border: 1px solid #10162f;
     cursor: pointer;
+    transition: all 0.2s ease-in-out;
+    box-shadow: 0.3rem 0.3rem black;
 }
 
 .sm-card-container {
@@ -19,7 +19,7 @@
 }
 
 .card-container:hover {
-    box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22);
+    transform: translate(0.4rem, -0.4rem);
 }
 
 /*----------------------------------------------*/
