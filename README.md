@@ -1,12 +1,12 @@
 # Pokemon Info
 Simple pokemon info app created with React.js
 
-![pokemon-info](https://i.ibb.co/kJz0nvy/screenshot-Of-Pokemon-App.png)
-
-![pokemon-details](https://i.ibb.co/bK21VkZ/ss-Of-Pokemon-Details.png)
+[![Netlify Status](https://api.netlify.com/api/v1/badges/066fe474-b39b-4487-b69e-b6380fc225f3/deploy-status)](https://app.netlify.com/sites/pokemon-cards-app/deploys)
+###### LIVE: [https://pokemon-cards-app.netlify.app/](https://pokemon-cards-app.netlify.app/)
 
 ## Features
 - Infinite scrolling on Pokemon Cards
+- Filter Pokemon Cards by Type
 - Click on card to see details of pokemon
 - Mobile/Desktop responsive
 
@@ -18,7 +18,7 @@ Simple pokemon info app created with React.js
 ## Will be in future update
 - Replace global classes with styled components
 - Show more information about ability onHover
-- Add type filtering and search pokemon by name
+- Add type filtering [ done ]
 - Navigate to nearby pokemon id in Pokemon detail component
 - Looking good in tablet screen
 
