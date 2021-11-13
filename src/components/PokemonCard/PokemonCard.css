@@ -19,7 +19,7 @@
 }
 
 .card-container:hover {
-    transform: translate(0.4rem, -0.4rem);
+    transform: translate(0rem, -0.8rem);
 }
 
 /*----------------------------------------------*/

@@ -2,8 +2,7 @@
 
 .app-container {
     font-family: "DotGothic16", serif;
-    padding: 36px;
-    margin: 0;
+    padding: 30px;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -15,8 +14,4 @@
     display: flex;
     flex-wrap: wrap;
     gap: 10px;
-}
-
-body {
-    background-color: #fff0e6;
 }
