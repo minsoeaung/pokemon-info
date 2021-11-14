@@ -1,14 +1,20 @@
 import {Route, Routes} from "react-router-dom";
 import PokeDex from "./PokeDex/PokeDex";
-import App from "./App";
+import Home from "./Home";
 import PokeDexByType from "./PokeDex/PokeDexByType";
+import PokemonType from "./PokemonType/PokemonType";
 
 const Routing = () => {
     return (
         <Routes>
-            <Route path="/" element={<App/>}>
+            <Route path="/" element={<Home/>}>
+
                 <Route index element={<PokeDex/>}/>
-                <Route path=":typeName" element={<PokeDexByType/>}/>
+
+                <Route path="type" element={<PokemonType/>} />
+
+                <Route path="/type/:typeName" element={<PokeDexByType />}/>
+
             </Route>
             <Route
                 path="*"

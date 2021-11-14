@@ -2,6 +2,8 @@ import {useParams} from "react-router-dom";
 import {useEffect, useState} from "react";
 import PokemonCard from "../PokemonCard/PokemonCard";
 import PokemonDetails from "../PokemonDetails/PokemonDetails";
+import './PokeDex.css'
+import pokemonTypeChart from "../../pokemonTypeChart";
 
 const PokeDexByType = () => {
     let params = useParams();
@@ -48,11 +50,45 @@ const PokeDexByType = () => {
 
     let isMobile = width <= 768
 
+    function chart(type, category) {
+        for (let i = 0; i < pokemonTypeChart.length; ++i) {
+            if (pokemonTypeChart[i].name.toLowerCase() === type) {
+                if (pokemonTypeChart[i][category].length === 0) return ["none"]
+                else return pokemonTypeChart[i][category];
+            }
+        }
+    }
+
 
     return (
         <>
             {isLoading ? <h1>Loading...</h1> :
                 <main className={isMobile ? "sm-app-container" : "app-container"}>
+                    <div style={{flex: "100%"}}>
+                        <h3>Type: {type}</h3>
+                        <table>
+                            <tr>
+                                <th>Immune:</th>
+                                {chart(type, "immunes").map(type => (
+                                    <td>{type.toLowerCase()}</td>
+                                ))}
+                            </tr>
+                            <tr>
+                                <th>Weaknesses:</th>
+                                {chart(type, "weaknesses").map(type => (
+                                    <td>{type.toLowerCase()}</td>
+                                ))}
+                            </tr>
+                            <tr>
+                                <th>Strengths:</th>
+                                {chart(type, "strengths").map(type => (
+                                    <td>{type.toLowerCase()}</td>
+                                ))}
+                            </tr>
+                        </table>
+                        <p style={{width: "100%"}}>There are {pokemons.length} {type} Pokémon: </p>
+                    </div>
+
                     {pokemons.map(pokemon =>
                         <PokemonCard
                             key={pokemon.name}
