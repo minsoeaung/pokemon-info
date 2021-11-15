@@ -14,13 +14,9 @@
     display: flex;
     flex-wrap: wrap;
     gap: 10px;
-    margin-top: 0.7rem;
+    margin-top: 80px;
 }
 
 table th {
     text-align: right;
-}
-
-table td {
-    width: 4rem;
 }

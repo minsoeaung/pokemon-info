@@ -3,9 +3,11 @@ import {useEffect, useState} from "react";
 import PokemonCard from "../PokemonCard/PokemonCard";
 import PokemonDetails from "../PokemonDetails/PokemonDetails";
 import './PokeDex.css'
-import pokemonTypeChart from "../../pokemonTypeChart";
+import pokemonTypeChart from "../../utilityData/pokemonTypeChart";
+import Loading from "../Loading/Loading";
+import PokemonType from "../PokemonType/PokemonType";
 
-const PokeDexByType = () => {
+const PokemonCardListsByType = () => {
     let params = useParams();
     let type = params.typeName;
 
@@ -59,30 +61,32 @@ const PokeDexByType = () => {
         }
     }
 
-
     return (
         <>
-            {isLoading ? <h1>Loading...</h1> :
+            {isLoading ? <Loading/> :
                 <main className={isMobile ? "sm-app-container" : "app-container"}>
                     <div style={{flex: "100%"}}>
-                        <h3>Type: {type}</h3>
+                        <div style={{display: "flex", gap: "20px", alignItems: 'center'}}>
+                            <h1>Type: </h1>
+                            <PokemonType type={type} isMobile={false}/>
+                        </div>
                         <table>
                             <tr>
                                 <th>Immune:</th>
                                 {chart(type, "immunes").map(type => (
-                                    <td>{type.toLowerCase()}</td>
+                                    <td><PokemonType type={type} isMobile={isMobile}/></td>
                                 ))}
                             </tr>
                             <tr>
                                 <th>Weaknesses:</th>
                                 {chart(type, "weaknesses").map(type => (
-                                    <td>{type.toLowerCase()}</td>
+                                    <td>{<PokemonType type={type} isMobile={isMobile}/>}</td>
                                 ))}
                             </tr>
                             <tr>
                                 <th>Strengths:</th>
                                 {chart(type, "strengths").map(type => (
-                                    <td>{type.toLowerCase()}</td>
+                                    <td>{<PokemonType type={type} isMobile={isMobile}/>}</td>
                                 ))}
                             </tr>
                         </table>
@@ -118,4 +122,4 @@ const PokeDexByType = () => {
     );
 }
 
-export default PokeDexByType
+export default PokemonCardListsByType

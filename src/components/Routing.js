@@ -1,19 +1,33 @@
-import {Route, Routes} from "react-router-dom";
-import PokeDex from "./PokeDex/PokeDex";
-import Home from "./Home";
-import PokeDexByType from "./PokeDex/PokeDexByType";
-import PokemonType from "./PokemonType/PokemonType";
+import {Outlet, Route, Routes} from "react-router-dom";
+import PokemonCardLists from "./PokemonCardLists/PokemonCardLists";
+import PokemonCardListsByType from "./PokemonCardLists/PokemonCardListsByType";
+import PokemonTypeLists from "./PokemonTypeLists/PokemonTypeLists";
+import SearchedPokemon from "./SearchedPokemon/SearchedPokemon";
+import Header from "./Header/Header";
+
+const Home = () => {
+    return (
+        <div>
+            <Header/>
+            <div style={{marginTop: "60px"}}>
+                <Outlet/>
+            </div>
+        </div>
+    );
+}
 
 const Routing = () => {
     return (
         <Routes>
             <Route path="/" element={<Home/>}>
 
-                <Route index element={<PokeDex/>}/>
+                <Route index element={<PokemonCardLists/>}/>
 
-                <Route path="type" element={<PokemonType/>} />
+                <Route path="type" element={<PokemonTypeLists/>}/>
 
-                <Route path="/type/:typeName" element={<PokeDexByType />}/>
+                <Route path="/type/:typeName" element={<PokemonCardListsByType/>}/>
+
+                <Route path="search" element={<SearchedPokemon/>}/>
 
             </Route>
             <Route

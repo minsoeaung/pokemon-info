@@ -1,5 +1,6 @@
 import './PokemonCard.css'
-import {colorsForCard, colorsForType} from "../../colors";
+import {colorsForCard} from "../../utilityData/colors";
+import PokemonType from "../PokemonType/PokemonType";
 
 const PokemonCard = ({name, type, imageSrc, lastPokemonRef, setClickedPokemon, pokemons, isMobile}) => {
 
@@ -26,10 +27,7 @@ const PokemonCard = ({name, type, imageSrc, lastPokemonRef, setClickedPokemon, p
             </div>
             <div className={isMobile ? "sm-type-container" : "type-container"}>
                 {type.map(type =>
-                    <p className={isMobile ? "sm-pokemon-type" : "pokemon-type"} key={type.type.name}
-                       style={{backgroundColor: colorsForType[type.type.name]}}>
-                        {type.type.name}
-                    </p>
+                    <PokemonType type={type} isMobile={isMobile}/>
                 )}
             </div>
         </div>

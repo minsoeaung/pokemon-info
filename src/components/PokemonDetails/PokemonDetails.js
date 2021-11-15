@@ -1,18 +1,11 @@
 import './PokemonDetails.css'
-import { colorsForCard, colorsForType } from "../../colors";
+import {colorsForCard, colorsForType} from "../../utilityData/colors";
+import calculateHeight from "../../utilityFunctions/calculateHeight";
+import calculateWeight from "../../utilityFunctions/calculateWeight";
 
 function PokemonDetails({clickedPokemon, setClickedPokemon, isMobile}) {
-    const height = (height) => {
-        // height from poke api come with dm
-        const realFeet = height * 0.32808
-        const feet = Math.floor(realFeet)
-        const inches = Math.round((realFeet - feet) * 12);
-        return `${feet}' ${inches}"`
-    }
-
-    const weight = (weight) => {
-        return (Math.round( (weight*0.2205) * 10 ) / 10).toFixed(1);
-    }
+    const height = calculateHeight(clickedPokemon.height)
+    const weight = calculateWeight(clickedPokemon.weight)
 
     return (
         <div className={`details-wrapper ${isMobile && "no-p"}`} onClick={() => setClickedPokemon({})}>
@@ -57,17 +50,17 @@ function PokemonDetails({clickedPokemon, setClickedPokemon, isMobile}) {
                         </div>
                         <h2>Abilities</h2>
                         <div className="abilities-container">
-                            {clickedPokemon.abilities.map(({ ability }) =>
+                            {clickedPokemon.abilities.map(({ability}) =>
                                 <span key={ability.name} className="nice-text">{ability.name}</span>
                             )}
                         </div>
                         <h2>Height</h2>
                         <div className="height-container">
-                            <span>{height(clickedPokemon.height)}</span>
+                            <span>{height}</span>
                         </div>
                         <h2>Weight</h2>
                         <div className="weight-container">
-                            <span>{weight(clickedPokemon.weight)} lbs</span>
+                            <span>{weight} lbs</span>
                         </div>
                     </section>
 
@@ -77,7 +70,8 @@ function PokemonDetails({clickedPokemon, setClickedPokemon, isMobile}) {
                         <h2>Type</h2>
                         <div className="type-container">
                             {clickedPokemon.types.map(type =>
-                                <p className="type nice-text" key={type.type.name} style={{backgroundColor: colorsForType[type.type.name]}}>
+                                <p className="type nice-text" key={type.type.name}
+                                   style={{backgroundColor: colorsForType[type.type.name]}}>
                                     {type.type.name}
                                 </p>
                             )}

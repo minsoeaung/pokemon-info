@@ -3,7 +3,7 @@ import PokemonDetails from "../PokemonDetails/PokemonDetails";
 import {useCallback, useEffect, useRef, useState} from "react";
 import './PokeDex.css'
 
-const PokeDex = () => {
+const PokemonCardLists = () => {
     const [pokemons, setPokemons] = useState([]) // array of all pokemon object
     const [nextURL, setNextURL] = useState("https://pokeapi.co/api/v2/pokemon/?limit=20")
     const [clickedPokemon, setClickedPokemon] = useState({}) // clicked pokemon object
@@ -89,4 +89,4 @@ const PokeDex = () => {
     );
 }
 
-export default PokeDex
+export default PokemonCardLists
