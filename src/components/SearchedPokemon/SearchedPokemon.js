@@ -63,7 +63,7 @@ const SearchedPokemon = () => {
         maxWidth: "1280px",
         display: "flex",
         flexDirection: isMobile ? "column" : "row",
-        alignItems: "start",
+        alignItems: isLoading || notFound ? "center" : "start",
         justifyContent: isMobile ? "" : "space-evenly"
     }
 

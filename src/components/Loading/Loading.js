@@ -14,7 +14,7 @@ const Loading = () => {
                 width="50px"
                 height="auto"
             />
-            <span>Loading...</span>
+            <span>Searching...</span>
         </div>
     );
 }
